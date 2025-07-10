@@ -1,7 +1,350 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
 
+
 .page {
-  /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
-  background-color: aliceblue;
+  /* Базовые стили блока */
+  min-inline-size: 375px;
+  background-image: url(../images/cover-image-dark.png);
+  background-size: contain;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
+
+.header {
+  margin-block-end: 40px;
+  inline-size: 375px;
+  min-block-size: 668px;
+  position: relative;
+  z-index: 0;
+  display: grid;
+  grid-template-rows: 1fr min-content 1fr;
+  font-family: var(--main-font, serif);
+}
+
+.decorated-zone {
+  padding-inline-start: 10px;
+  padding-inline-end: 10px;
+}
+
+.header__rec {
+  display: block;
+  position: absolute;
+  content: "";
+  color: var(--accent-color, #ff0070);
+  inline-size: 52px;
+  block-size: 26px;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 25px;
+  font-family: var(--main-font, sans-serif);
+  justify-self: end;
+  margin-inline-end: 15px;
+  margin-block-start: 10px;
+}
+
+.header__rec::before {
+  /*span кружочек*/
+  content: "";
+  position: absolute;
+  z-index: 1;
+  inline-size: 9px;
+  block-size: 9px;
+  background-color: var(--accent-color, #ff0070);
+  border-radius: 100%;
+  box-shadow: 0px 0px 4px 2px var(--accent-color, #ff0070);
+  margin-inline-start: 40px;
+
+  margin-block-start: 8px;
+}
+
+.decorated-zone::after {
+  /*декоротивные уголки класс decorated-zone */
+  display: block;
+  justify-self: end;
+  position: absolute;
+  z-index: 1;
+
+  content: "";
+  inline-size: 25px;
+  block-size: 25px;
+  border-block-start: 1px solid var(--accent-color, #ff0070);
+  border-inline-end: 1px solid var(--accent-color, #ff0070);
+  margin-block-start: 10px;
+  margin-inline-end: 10px;
+}
+
+.decorated-zone_corner::after {
+  display: block;
+  justify-self: end;
+  position: absolute;
+  z-index: 1;
+  content: "";
+  inline-size: 25px;
+  block-size: 25px;
+  border-inline-start: 1px solid var(--accent-color, #ff0070);
+  border-block-end: 1px solid var(--accent-color, #ff0070);
+  inset-block-start: 95%;
+}
+
+.header__theme-menu {
+  margin-block-start: 75px;
+}
+
+.header__theme-menu-list {
+  /*тег ul*/
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+  list-style: none;
+}
+
+.header__theme-menu-item {
+  /*тег li*/
+  font-family: var(--main-font, sans-serif);
+  font-size: 18px;
+  line-height: 18px;
+  color: var(--accent-color, #ff0070);
+}
+
+.header__theme-menu-button {
+  /*тег button ОБЩИЙ КЛАСС ДЛЯ button*/
+  width: 70px;
+  height: 26px;
+  cursor: pointer;
+  font-weight: 400;
+  text-align: center;
+  text-transform: lowercase;
+  background-color: transparent;
+  border: none;
+}
+
+.header__theme-menu-button_type_dark {
+  color: currentColor;
+}
+
+.header__theme-menu-button_active {
+  pointer-events: none;
+}
+
+a:focus,
+button:focus {
+  /*при tab*/
+  outline: none;
+  outline-offset: 0;
+}
+
+a:focus-visible {
+  outline: 1px solid var(----main-text-color, #f1b2ce);
+}
+
+button:focus-visible {
+  border-block-end: 2px solid var(----main-text-color, #f1b2ce);
+}
+
+button:default {
+  /*используются по умолчанию*/
+  outline: 1px solid var(--outline, #ff0070);
+}
+
+a:default {
+  /*используются по умолчанию*/
+  text-decoration: underline;
+}
+
+button:hover {
+  /*при наведении курсора*/
+  outline: 1px solid var(--opacity, rgba(255, 0, 112, 0.4));
+}
+
+a:hover {
+  /*при наведении курсора*/
+  border-block-end: 2px solid var(----main-text-color, #f1b2ce);
+}
+
+.button:disabled {
+  pointer-events: none;
+}
+
+.cover__title {
+  /*no focus </h1> */
+  color: var(--focus, #db00ff);
+  text-shadow: 4px 4px 0 var(--text-shadow, #ff0070);
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  line-height: 83%;
+}
+
+.cover__description {
+  /*div*/
+  display: flex;
+  flex-wrap: wrap;
+  inline-size: 355px;
+  block-size: 117px;
+  align-self: center;
+}
+
+.title-decor {
+  background-color: var(--title-decor, #ff0070);
+}
+
+.cover__description-text {
+  /*  <p> Что делать, когда не можешь делать*/
+  line-height: 23px;
+  color: var(--text-color, #000028);
+  font-weight: 700;
+  font-size: 18px;
+  font-family: var(--main-font, sans-serif);
+}
+
+.content-section {
+  inline-size: 375px;
+  padding-inline-start: var(--size-padding, 10px);
+  padding-inline-end: var(--size-padding, 10px);
+  background-color: var(--bg-color, #000028);
+}
+
+.focus {
+  /*первая section */
+  display: grid;
+  grid-template-rows: min-content 1fr;
+  row-gap: 20px;
+}
+
+.focus__heading {
+  /*h2*/
+  font-family: var(--main-font, sans-serif);
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 23px;
+  letter-spacing: 0%;
+  color: var(--accent-color, #ff0070);
+}
+
+.title-decor {
+  background-color: var(--title-decor, #ff0070);
+}
+
+.focus__card-list-item {
+  /*li*/
+  font-family: var(--main-font, sans-serif);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 23px;
+  color: var(----main-text-color, #f1b2ce);
+  inline-size: 355px;
+  margin-block-end: 30px;
+}
+
+.accent-span {
+  /*span*/
+  display: block;
+  block-size: 23px;
+  font-weight: 700;
+  color: var(--text-color, #000028);
+  margin-block-end: 10px;
+}
+
+.accent-span-link {
+  /*a*/
+  text-shadow: 2px 2px 0 var(--text-shadow, #ff0070);
+  text-decoration: none;
+  color: inherit;
+}
+
+.ask__a-question {
+  /*ВТОРАЯ СЕКЦИЯ*/
+  display: grid;
+  grid-template-rows: min-content 1fr;
+  row-gap: 20px;
+}
+
+.simple__tips-section {
+  /*ТРЕТЬЯ СЕКЦИЯ*/
+  display: grid;
+  grid-template-rows: min-content, 1fr, 1fr;
+  row-gap: 20px;
+}
+
+.tips-box {
+  inline-size: 355px;
+  block-size: 47px;
+}
+
+.title-span {
+  display: block;
+  font-family: var(--main-font, sans-serif);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 23px;
+  color: var(--text-color, #000028);
+  margin-block-end: 10px;
+}
+
+.gallery__section {
+  /*ЧЕТВЕРТАЯ СЕКЦИЯ*/
+  inline-size: 375px;
+  padding-block-end: 30px;
+}
+
+.card__title {
+  inline-size: 355px;
+  block-size: 24px;
+  font-family: var(--main-font, sans-serif);
+  font-size: 18px;
+  line-height: 23px;
+  font-weight: 700;
+  color: var(--text-color, #000028);
+  margin-block-end: 10px;
+}
+
+.gallery__image {
+  inline-size: 100%;
+}
+
+.container {
+  display: grid;
+  row-gap: 10px;
+}
+
+.footer {
+  position: relative;
+  z-index: 0;
+  inline-size: 375px;
+  min-block-size: 668px;
+  display: grid;
+  background-color: var(--bg-color, #000028);
+}
+
+.footer__title {
+  font-family: var(--main-font, sans-serif);
+  color: var(--focus-color, #db00ff);
+  text-shadow: 2px 2px 0 var(--text-shadow, #ff0070);
+  line-height: 83%;
+  font-weight: 700;
+  justify-self: center;
+  align-self: center;
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+}
+
+@media (768px <= width < 1200px) {
+  /* Стили блока при ширине окна просмотра >= 768px и < 1200px */
+  .header__theme-menu {
+    margin-block-start: 192px;
+  }
+
+  
+}
+
+@media (width >= 1200px) {
+  /* Стили блока при ширине окна просмотра >= 1200px */
+  .header__theme-menu {
+    margin-block-start: 192px;
+  }
+
+ 
+}
+
 
