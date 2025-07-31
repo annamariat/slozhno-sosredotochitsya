@@ -1,30 +1,37 @@
 .theme_light {
   /* Переменные светлой темы */
-  --bg-color: #fff1f7; 
-  --text-color: #353430; 
-  --accent-color: #353430; 
+
+  /*в header фон так же как и в темной теме картинкой*/
+
+  --bg-color: #fff1f7; /*цвет фона в main и footere*/
+  --text-color: #353430; /*цвет текста в шапке: "Что делать когда не можешь делать ничего"*/
+  --accent-color: #353430; /*цвет уголков и декорации и кнопок*/
   --opacity: rgba(50, 49, 45, 0.4);
   --focus-color: #ffc2e6;
   --text-shadow: #ff0070;
   --title-decor: #ff8dcb;
-  --outline: #353430;
+  --outline-border: #353430;
   --main-text-color: #353430;
   --background-image: url(../images/cover-image-light.png);
   --rec-display: none;
+  --link-focus: #353430;
+  --link-shadow: #ffc2e6;
 }
 
 @media (prefers-color-scheme: light) {
   :root {
-    --bg-color: #fff1f7; 
-    --text-color: #353430; 
-    --accent-color: #353430; 
+    --bg-color: #fff1f7; /*цвет фона в main и footere*/
+    --text-color: #353430; /*цвет текста в шапке: "Что делать когда не можешь делать ничего"*/
+    --accent-color: #353430; /*цвет уголков и декорации и кнопок*/
     --opacity: rgba(50, 49, 45, 0.4);
     --focus-color: #ffc2e6;
     --text-shadow: #ff0070;
     --title-decor: #ff8dcb;
-    --outline: #353430;
-    --main-text-color: #353430; 
+   --outline-border: #353430;
+    --main-text-color: #353430; /*цвет текста в секциях*/
     --background-image: url(../images/cover-image-light.png);
     --rec-display: none;
+    --link-focus: #353430;
+    --link-shadow: #ffc2e6;
   }
 }
