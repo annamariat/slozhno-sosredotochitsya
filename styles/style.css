@@ -12,15 +12,9 @@
   inline-size: 100%;
   display: grid;
   background-color: var(--bg-color, #000028); /*ВЫПОЛНЕНО!!!!*/
-  /*Необходимо добавить цвет фона для страницы, который будет совпадать с цветом фонового изображения.
-   Это обеспечит корректное отображение страницы в случаях, когда изображение не загружается или отключено.
-Для светлой темы подходящий цвет: #fff1f7
-Для тёмной темы подходящий цвет: #000028*/
 }
 
 .header {
-  /*Согласно заданию и чек-листу:
-Высоту блока необходимо привязать к высоте окна браузера (100vh)*/ /*ВЫПОЛНЕНО!!!!*/
   font-family: var(--main-font, monospace);
   display: grid;
   grid-template-rows: 1fr min-content 1fr;
@@ -30,7 +24,7 @@
   inline-size: 100%;
   padding: 20px;
   margin-block-end: 60px;
-  block-size: 100vh;
+  block-size: 100vh; /*ВЫПОЛНЕНО!!!!*/
 }
 
 @media (max-width: 768px) {
@@ -59,7 +53,6 @@
   font-weight: 400;
   font-size: 18px;
   line-height: 25px;
-  font-family: var(--main-font, monospace);
   justify-self: end;
   top: 20px;
   right: 30px;
@@ -68,19 +61,8 @@
 @media (max-width: 500px) {
   /* то как будет выглядеть на размерах экрана от 375 до 500 */
   .header__rec {
-    display: var(--rec-display);
-    position: absolute;
-    content: "";
-    color: var(--accent-color, #ff0070);
-    inline-size: 52px;
-    block-size: 26px;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 25px;
-    font-family: var(--main-font, monospace);
-    justify-self: end;
     top: 10px;
-    right: 20px;
+    right: 20px; /*ОТОБРАЖЕНИЕ REC, ВЫПОЛНЕНО!*/
   }
 }
 
@@ -92,10 +74,10 @@
   inline-size: 9px;
   block-size: 9px;
   background-color: var(--accent-color, #ff0070);
-  border-radius: 100%;
+  border-radius: 50%;
   box-shadow: 0px 0px 4px 2px var(--accent-color, #ff0070);
-  top: 10px;
-  left: 40px;
+  top: 8px;
+  left: 44px;
 }
 
 .decorated-zone::after {
@@ -171,7 +153,6 @@
 
 .header__theme-menu-item {
   /*тег li*/
-  font-family: var(--main-font, monospace);
   font-size: 18px;
   line-height: 18px;
   color: var(--accent-color, #ff0070);
@@ -195,7 +176,7 @@
 }
 
 .header__theme-menu-button_active {
-  outline: 1px solid var(--accent-color, #ff0070);
+  outline: 1px solid currentColor;
   pointer-events: none;
 }
 
@@ -207,16 +188,16 @@ button:focus {
 }
 
 a:focus-visible {
-  outline: 1px solid var(--link-focus, #f1b2ce);
+  outline: 1px solid currentColor;
 }
 
 button:focus-visible {
-  border-block-end: 2px solid var(--outline-border, #ff0070);
+  border-block-end: 2px solid currentColor;
 }
 
 button:default {
   /*используются по умолчанию*/
-  outline: 1px solid var(--outline, #ff0070);
+  outline: 1px solid currentColor;
 }
 
 a:default {
@@ -231,11 +212,15 @@ button:hover {
 
 a:hover {
   /*при наведении курсора*/
-  border-block-end: 1px solid var(--main-text-color, #f1b2ce);
+  border-block-end: 1px solid currentColor;
 }
 
 .button:disabled {
   pointer-events: none;
+}
+
+.title-decor {
+  background-color: var(--title-decor, #ff0070);
 }
 
 .cover__title {
@@ -258,6 +243,7 @@ a:hover {
   /* то как будет выглядеть на размерах экрана от 375 до 500 */
   .cover__title {
     /*no focus </h1> */
+    font-size: var(--title-size-mobile);
     margin-left: 0px;
   }
 }
@@ -274,17 +260,11 @@ a:hover {
 
 @media (max-width: 500px) {
   /* то как будет выглядеть на размерах экрана от 375 до 500 */
-
   .cover__description {
     max-inline-size: 100%;
     inline-size: 100%;
-    align-self: center;
     justify-self: center;
   }
-}
-
-.title-decor {
-  background-color: var(--title-decor, #ff0070);
 }
 
 .cover__description__text {
@@ -293,7 +273,6 @@ a:hover {
   color: var(--text-color, #000028);
   font-weight: 700;
   font-size: 18px;
-  font-family: var(--main-font, monospace);
 }
 
 .content {
@@ -309,7 +288,6 @@ a:hover {
 @media (max-width: 500px) {
   /* то как будет выглядеть на размерах экрана от 375 до 500 */
   .content {
-    display: grid;
     gap: 50px;
     padding-inline-start: 10px;
     padding-inline-end: 10px;
@@ -317,21 +295,11 @@ a:hover {
 }
 
 .text-section {
-  /*section*/
   display: grid;
   gap: 20px;
 }
 
 .text-section-type_primary {
-  /*Заголовки секций страницы полностью однотипны в стилизации и отображении, 
-  используйте одинаковый класс для разметки и стилизации. 
-Переиспользование стилизации ускоряет разработку, устраняя необходимость 
-переписывать код для каждого элемента. Это создает единый визуальный стиль и упрощает поддержку кода, 
-так как изменения в одном элементе применяются ко всем аналогичным. Переиспользование
- стилей уменьшает размер CSS-файлов, что ускоряет загрузку страниц и уменьшает время рендеринга. 
- Сокращение дублирования кода делает CSS-файлы более компактными,
- удобными для поддержки и оптимизированными для работы браузеров.*/
-  /*section для первого вида гридов*/
   grid-template-columns: 315px auto;
   column-gap: 20px;
 }
@@ -340,7 +308,6 @@ a:hover {
   /* то как будет выглядеть на размерах экрана от 500 до 768 */
   .text-section-type_primary {
     grid-template-columns: 236px auto;
-    column-gap: 20px;
   }
 }
 
@@ -349,44 +316,11 @@ a:hover {
   .text-section-type_primary {
     display: flex;
     flex-direction: column;
-    gap: 20px;
   }
 }
 
 .text-section-title {
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 23px;
-  color: var(--accent-color, #ff0070);
-}
-
-.text-section__texts-title {
-  /*h3*/
-  font-weight: 700;
-  color: var(--text-color, #000028);
-  margin-block-end: 10px;
-}
-
-.text-section__paragraf {
-  /*p*/
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 23px;
-  color: var(--main-text-color, #f1b2ce);
-  margin-block-end: 20px;
-}
-
-.text-section__paragraf:last-child {
-  margin-block-end: 0;
-}
-
-.accent-span-link {
-  /*a*/
-  text-shadow: 2px 2px 0 var(--link-shadow, #ff0070);
-  text-decoration: none;
-}
-
-.text-section-title {
+  /*h2*/
   inline-size: 315px;
   font-weight: 700;
   font-size: 18px;
@@ -410,6 +344,36 @@ a:hover {
   }
 }
 
+.text-section__texts-title {
+  /*h3*/
+  font-weight: 700;
+  color: var(--text-color, #000028);
+  margin-block-end: 10px;
+  letter-spacing: -0.02em;
+}
+
+.text-section__paragraf {
+  /*p*/
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.3;
+  color: var(--main-text-color, #f1b2ce);
+  margin-block-end: 20px;
+  letter-spacing: -0, 03em;
+}
+
+.text-section__paragraf:last-child {
+  margin-block-end: 0;
+}
+
+.accent-span-link {
+  /*a*/
+  text-shadow: 2px 2px 0 var(--link-shadow, #ff0070);
+  text-decoration: none;
+}
+
+/*ВТОРАЯ СЕКЦИЯ*/
+
 .section-list {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -420,18 +384,9 @@ a:hover {
   /* то как будет выглядеть на размерах экрана от 500 до 768 */
   .section-list {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
   }
-}
-
-.section__item:last-child {
-  margin-inline-end: 0;
-}
-
-.title {
-  font-weight: 700;
-  color: var(--text-color, #000028);
-  margin-block-end: 20px;
 }
 
 .text-section-item {
@@ -442,15 +397,47 @@ a:hover {
   margin-block-end: 10px;
 }
 
-/*четвертая секция*/
-.gallery__section {
-  display: grid;
-  gap: 20px;
+.section__item:last-child {
+  margin-inline-end: 0;
 }
 
-.gallery-title {
-  font-weight: 700;
-  color: var(--text-color, #000028);
+/*ТРЕТЬЯ СЕКЦИЯ*/
+
+.text-section-type_middle {
+  grid-template-columns: 315px auto;
+  column-gap: 20px;
+}
+
+@media (max-width: 768px) {
+  /* то как будет выглядеть на размерах экрана от 500 до 768 */
+  .text-section-type_middle {
+    grid-template-columns: 236px auto;
+  }
+}
+
+@media (max-width: 500px) {
+  /* то как будет выглядеть на размерах экрана от 375 до 500 */
+  .text-section-type_middle {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.text-section-type_middle .text-section__texts-title {
+  margin-block-end: 20px;
+}
+
+/*четвертая секция*/
+
+@media (max-width: 500px) {
+  /* то как будет выглядеть на размерах экрана от 375 до 500 */
+  .text-section-type_gallery {
+    gap: 10px;
+  }
+}
+
+.text-section-type_gallery .text-section__texts-title {
+  margin-block-end: 0px;
 }
 
 .gallery__image {
@@ -459,6 +446,7 @@ a:hover {
   block-size: 100%;
   object-fit: cover;
   object-position: center;
+  height: 100%;
 }
 
 .gallery-list {
@@ -542,7 +530,6 @@ a:hover {
   /* то как будет выглядеть на размерах экрана от 375 до 500 */
   .footer__title {
     font-size: var(--title-size-mobile);
-    margin-left: 0;
   }
 }
 
@@ -550,6 +537,5 @@ a:hover {
   /* то как будет выглядеть на размерах экрана от 500 до 768 */
   .footer__title {
     font-size: var(--title-size-mobile);
-    margin-left: 0;
   }
 }
