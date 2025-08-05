@@ -269,7 +269,7 @@ a:hover {
 
 .cover__description__text {
   /*  <p> Что делать, когда не можешь делать*/
-  line-height: 23px;
+  line-height: 23.4px;
   color: var(--text-color, #000028);
   font-weight: 700;
   font-size: 18px;
@@ -324,8 +324,9 @@ a:hover {
   inline-size: 315px;
   font-weight: 700;
   font-size: 18px;
-  line-height: 23px;
+  line-height: 23.4px;
   color: var(--accent-color, #ff0070);
+  
 }
 
 @media (max-width: 768px) {
@@ -349,17 +350,19 @@ a:hover {
   font-weight: 700;
   color: var(--text-color, #000028);
   margin-block-end: 10px;
-  letter-spacing: -0.02em;
+  font-size: 18px;
+  line-height: 23.4px;
+  
 }
 
 .text-section__paragraf {
   /*p*/
   font-weight: 400;
   font-size: 18px;
-  line-height: 1.3;
   color: var(--main-text-color, #f1b2ce);
+  line-height: 23.4px;
   margin-block-end: 20px;
-  letter-spacing: -0, 03em;
+  
 }
 
 .text-section__paragraf:last-child {
@@ -392,7 +395,7 @@ a:hover {
 .text-section-item {
   font-weight: 400;
   font-size: 18px;
-  line-height: 23px;
+  line-height: 23.4px;
   color: var(--text-color, #000028);
   margin-block-end: 10px;
 }
